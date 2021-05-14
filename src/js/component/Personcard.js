@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Personcard = props => {
 	return (
@@ -12,9 +13,9 @@ export const Personcard = props => {
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 
-				<a href="#" className="btn btn-primary">
-					Ver mas.
-				</a>
+				<Link to="/single/1">
+					<p className="btn btn-primary">Ver mas.</p>
+				</Link>
 			</div>
 		</div>
 	);
