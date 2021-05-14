@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			personas: [],
 			planetas: [],
-			personabiografia: []
+			personabiografia: [],
+			planetadescripcion: []
 		},
 		actions: {
 			// Use getActions to call a function within a function
@@ -42,6 +43,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(link)
 					.then(resp => resp.json())
 					.then(resp => setStore({ personabiografia: resp.result.properties }))
+					.catch(error => console.log(true));
+			},
+			verplanet: ideplaneta => {
+				ideplaneta += 1;
+
+				let link = "https://www.swapi.tech/api/planets/" + ideplaneta;
+				fetch(link)
+					.then(resp => resp.json())
+					.then(resp => setStore({ planetadescripcion: resp.result.properties }))
 					.catch(error => console.log(true));
 			},
 			changeColor: (index, color) => {

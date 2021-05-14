@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
+export const SinglePlanetas = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
@@ -17,23 +17,24 @@ export const Single = props => {
 						alt="..."
 					/>
 					<div className="card-body">
-						<h5 className="card-title">{store.personabiografia.name}</h5>
+						<h5 className="card-title">{store.planetadescripcion.name}</h5>
 						<ul className="card-text">
-							<li>Height: {store.personabiografia.height}</li>
-							<li>Mass: {store.personabiografia.mass}</li>
-							<li>Hair color: {store.personabiografia.hair_color}</li>
+							<li>Diameter: {store.planetadescripcion.diameter}</li>
+							<li>Rotation period: {store.planetadescripcion.rotation_period}</li>
+							<li>Orbital period: {store.planetadescripcion.orbital_period}</li>
 							<li>
-								Skin color:
-								{store.personabiografia.skin_color}
+								Gravity:
+								{store.planetadescripcion.gravity}
 							</li>
 							<li>
-								Eye color:
-								{store.personabiografia.eye_color}
+								Population:
+								{store.planetadescripcion.population}
 							</li>
-							<li>Birth year: {store.personabiografia.birth_year}</li>
-							<li>Gender: {store.personabiografia.gender}</li>
-							<li>Homeworld: {store.personabiografia.homeworld}</li>
+							<li>Climate: {store.planetadescripcion.climate}</li>
+							<li>Terrain: {store.personabiografia.terrain}</li>
+							<li>Surface water: {store.planetadescripcion.surface_water}</li>
 						</ul>
+
 						<p className="card-text">
 							<small className="text-muted">Last updated 3 mins ago</small>
 						</p>
@@ -49,6 +50,6 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
+SinglePlanetas.propTypes = {
 	match: PropTypes.object
 };

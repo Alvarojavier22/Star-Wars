@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Planetcard = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="card col-3" style={{ width: "18rem" }}>
 			<img
@@ -12,14 +15,15 @@ export const Planetcard = props => {
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 
-				<a href="#" className="btn btn-primary">
-					Ver mas.
-				</a>
+				<Link onClick={() => actions.verplanet(props.posicion)} to={"/singleplanetas/" + props.posicion}>
+					<p className="btn btn-primary">Ver mas.</p>
+				</Link>
 			</div>
 		</div>
 	);
 };
 Planetcard.propTypes = {
 	name: PropTypes.string,
-	imgsURL: PropTypes.string
+	imgsURL: PropTypes.string,
+	posicion: PropTypes.number
 };
