@@ -12,13 +12,13 @@ export const Home = () => {
 			<div className="contenedor d-flex">
 				{" "}
 				{store.personas.map((element, i) => {
-					return <Personcard key={i} name={element.name} />;
+					return <Personcard key={i} name={element.name} posicion={i} />;
 				})}
 			</div>
 			<div className="contenedor d-flex">
 				{" "}
 				{store.planetas.map((element, i) => {
-					return <Planetcard key={i} name={element.name} />;
+					return <Planetcard key={i} name={element.name} posicion={i} />;
 				})}
 			</div>
 		</div>

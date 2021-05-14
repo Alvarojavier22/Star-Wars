@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export const Personcard = props => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="card col-3" style={{ width: "18rem" }}>
 			<img
@@ -13,7 +16,7 @@ export const Personcard = props => {
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 
-				<Link to="/single/1">
+				<Link onClick={() => actions.verBioPerson(props.posicion)} to={"/single/" + props.posicion}>
 					<p className="btn btn-primary">Ver mas.</p>
 				</Link>
 			</div>
@@ -22,5 +25,6 @@ export const Personcard = props => {
 };
 Personcard.propTypes = {
 	name: PropTypes.string,
-	imgsURL: PropTypes.string
+	imgsURL: PropTypes.string,
+	posicion: PropTypes.number
 };
