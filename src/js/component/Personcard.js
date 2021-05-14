@@ -19,6 +19,14 @@ export const Personcard = props => {
 				<Link onClick={() => actions.verBioPerson(props.posicion)} to={"/single/" + props.posicion}>
 					<p className="btn btn-primary">Ver mas.</p>
 				</Link>
+				<button
+					onClick={() => {
+						actions.agregarfavoritos({ name: props.name });
+					}}
+					type="button"
+					className="btn btn-primary">
+					Favs.
+				</button>
 			</div>
 		</div>
 	);

@@ -18,6 +18,9 @@ export const Planetcard = props => {
 				<Link onClick={() => actions.verplanet(props.posicion)} to={"/singleplanetas/" + props.posicion}>
 					<p className="btn btn-primary">Ver mas.</p>
 				</Link>
+				<button type="button" className="btn btn-primary">
+					Favs.
+				</button>
 			</div>
 		</div>
 	);

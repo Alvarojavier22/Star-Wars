@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+			favs: [],
 			personas: [],
 			planetas: [],
 			personabiografia: [],
@@ -53,6 +54,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(resp => setStore({ planetadescripcion: resp.result.properties }))
 					.catch(error => console.log(true));
+			},
+			agregarfavoritos: element => {
+				let isInFavs = getStore().favs.findIndex(fav => fav.name === element.name);
+				if (isInFavs === -1) {
+					let newFav = [...getStore().favs, element];
+					setStore({ favs: newFav });
+				} else return;
+				// favs.map((elemento, i) => {
+				//   if (elemento !== element) {
+
+				//     setStore({ favs: element });
+				// }
+				//})
 			},
 			changeColor: (index, color) => {
 				//get the store
